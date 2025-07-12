@@ -97,3 +97,5 @@ Ubuntu)
     sudo systemctl unmask sleep.target suspend.target hibernate.target hybrid-sleep.target &>/dev/null
     ;;
 esac
+
+echo -e "\n=> $OS dependencies installed"
