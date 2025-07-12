@@ -46,9 +46,11 @@ echo "Installing $OS dependencies"
 
 case "$OS" in
 macOS)
-    # Prevent idle sleep while this script runs
-    # Use sudo to install Homebrew with root privileges to prevent installation failures.
-    sudo caffeinate -i -w $$ &
+    # Keep sudo alive
+    sudo -v
+
+    # Prevent the system from sleeping while the script is running
+    caffeinate -s -u -w $$ &
 
     if [ ! -f /opt/homebrew/bin/brew ]; then
         NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
