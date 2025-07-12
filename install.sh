@@ -51,19 +51,19 @@ macOS)
     sudo caffeinate -i -w $$ &
 
     if [ ! -f /opt/homebrew/bin/brew ]; then
-        NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" >/dev/null
+        NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     fi
 
     if ! command -v brew >/dev/null; then
-        eval "$(/opt/homebrew/bin/brew shellenv)" >/dev/null
+        eval "$(/opt/homebrew/bin/brew shellenv)"
     fi
 
     if ! command -v python3 >/dev/null; then
-        brew install python3 >/dev/null
+        brew install python3
     fi
 
     if ! command -v ansible >/dev/null; then
-        brew install ansible >/dev/null
+        brew install ansible
     fi
     ;;
 Ubuntu)
@@ -72,26 +72,26 @@ Ubuntu)
         alias sudo=""
     fi
 
-    sudo systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target >/dev/null 2>&1
+    sudo systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target &>/dev/null
 
-    sudo apt-get update >/dev/null
+    sudo apt-get update
 
     export DEBIAN_FRONTEND=noninteractive
 
     if ! command -v git >/dev/null; then
-        sudo apt-get install git -y >/dev/null
+        sudo apt-get install git -y
     fi
 
     if ! command -v python3 >/dev/null; then
-        sudo apt-get install python3 -y >/dev/null
+        sudo apt-get install python3 -y
     fi
 
     if ! command -v ansible >/dev/null; then
-        sudo apt install software-properties-common -y >/dev/null
-        sudo add-apt-repository --yes --update ppa:ansible/ansible >/dev/null
-        sudo apt install ansible -y >/dev/null
+        sudo apt install software-properties-common -y
+        sudo add-apt-repository --yes --update ppa:ansible/ansible
+        sudo apt install ansible -y
     fi
 
-    sudo systemctl unmask sleep.target suspend.target hibernate.target hybrid-sleep.target >/dev/null 2>&1
+    sudo systemctl unmask sleep.target suspend.target hibernate.target hybrid-sleep.target &>/dev/null
     ;;
 esac
