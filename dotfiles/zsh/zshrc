@@ -1,0 +1,30 @@
+source "$HOME/.config/shell/settings.sh"
+
+source "$XDG_CONFIG_HOME/shell/external.sh"
+source "$XDG_CONFIG_HOME/shell/functions.sh"
+source "$XDG_CONFIG_HOME/shell/bootstrap.sh"
+source "$XDG_CONFIG_HOME/shell/aliases.sh"
+
+if [ -f "$HOME/.shell_local_before" ]; then
+    source "$HOME/.shell_local_before"
+fi
+
+if [ -f "$HOME/.zshrc_local_before" ]; then
+    source "$HOME/.zshrc_local_before"
+fi
+
+source "$XDG_CONFIG_HOME/zsh/functions.zsh"
+source "$XDG_CONFIG_HOME/zsh/settings.zsh"
+source "$XDG_CONFIG_HOME/zsh/plugins.zsh"
+
+if [ -f "$HOME/.shell_local_after" ]; then
+    source "$HOME/.shell_local_after"
+fi
+
+if [ -f "$HOME/.zshrc_local_after" ]; then
+    source "$HOME/.zshrc_local_after"
+fi
+
+if [ -f "$HOME/.shell_private" ]; then
+    source "$HOME/.shell_private"
+fi
