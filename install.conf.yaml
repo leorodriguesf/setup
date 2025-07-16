@@ -29,6 +29,8 @@
     ~/.signature.txt: dotfiles/signature.txt
     ~/.config/bash: dotfiles/bash
     ~/.bashrc: dotfiles/bash/bashrc
+    ~/.config/git: dotfiles/git
+    ~/.gitconfig: dotfiles/git/gitconfig
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]

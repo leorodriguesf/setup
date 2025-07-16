@@ -1,0 +1,38 @@
+[user]
+name = Leonardo Rodrigues Ferreira
+email = leorodriguesf95@gmail.com
+
+[alias]
+g = log --all --graph --oneline
+s = status --short
+d = difftool
+ds = difftool --staged
+c = commit --verbose
+ca = commit --verbose --all
+l = log --patch --stat
+unstage = restore --staged --
+discard = restore --
+last = log --patch --stat -1 HEAD
+
+[core]
+editor = vim
+excludesfile = ~/.config/git/gitignore_global
+
+[merge]
+tool = vimdiff
+
+[diff]
+tool = vimdiff
+
+[difftool]
+prompt = false
+
+[color "diff"]
+meta = blue
+old = black red strike
+new = black green italic
+context = yellow bold # context (ie: unchanged lines) text
+
+# Allow local customizations in the .gitconfig_local file
+[include]
+path = ~/.gitconfig_local
