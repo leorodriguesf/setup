@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+if ! command -v tmux >/dev/null || ! command -v tgpt >/dev/null; then
+    exit 0
+fi
+
+if [[ -z $TMUX ]]; then
+    tmux new-session \; split-window -h -l 40% bash -c "tgpt -i"
+else
+    tmux split-window -h -l 40% bash -c "tgpt -i"
+fi

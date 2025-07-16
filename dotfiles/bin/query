@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+echo "Tips for your query:"
+echo "1. Be as specific as possible. For example, 'python/append+file' is better than 'python/file'."
+echo "2. Separate words in queries with '+' instead of spaces."
+echo "3. Use ':help' for a full list of options and features."
+echo "4. Eliminate unwanted results with '+-keyword', e.g., 'python/multiply+matrices+-numpy'."
+echo "5. To search by keyword, prefix your query with '~', e.g., '~snapshot'."
+echo "6. View programming basics using ':learn', e.g., 'python/:learn'."
+echo -e "\n"
+
+read -p "Enter Query: " query
+
+if [[ -z $query ]]; then
+    exit 0
+fi
+
+curl -s cht.sh/$query | less -R
