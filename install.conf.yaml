@@ -27,6 +27,8 @@
     ~/.config/zsh: dotfiles/zsh
     ~/.zshrc: dotfiles/zsh/zshrc
     ~/.signature.txt: dotfiles/signature.txt
+    ~/.config/bash: dotfiles/bash
+    ~/.bashrc: dotfiles/bash/bashrc
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
