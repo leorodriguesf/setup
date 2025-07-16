@@ -32,6 +32,7 @@
     $XDG_CONFIG_HOME/git: dotfiles/git
     ~/.gitconfig: dotfiles/git/gitconfig
     $XDG_CONFIG_HOME/tmux: dotfiles/tmux
+    $XDG_CONFIG_HOME/starship: dotfiles/starship
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
