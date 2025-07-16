@@ -23,15 +23,15 @@
     - $BACKUP_DIR
 
 - link:
-    ~/.config/shell: dotfiles/shell
-    ~/.config/zsh: dotfiles/zsh
+    $XDG_CONFIG_HOME/shell: dotfiles/shell
+    $XDG_CONFIG_HOME/zsh: dotfiles/zsh
     ~/.zshrc: dotfiles/zsh/zshrc
     ~/.signature.txt: dotfiles/signature.txt
     ~/.config/bash: dotfiles/bash
     ~/.bashrc: dotfiles/bash/bashrc
-    ~/.config/git: dotfiles/git
+    $XDG_CONFIG_HOME/git: dotfiles/git
     ~/.gitconfig: dotfiles/git/gitconfig
-    ~/.config/tmux: dotfiles/tmux
+    $XDG_CONFIG_HOME/tmux: dotfiles/tmux
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]

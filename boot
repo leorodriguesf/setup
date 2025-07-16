@@ -93,14 +93,14 @@ echo "$OS dependencies installed"
 
 echo "Cloning repository..."
 
-rm -rf ~/.local/share/setup
+rm -rf ~/.setup
 
-git clone https://github.com/leorodriguesf/setup.git ~/.local/share/setup >/dev/null
+git clone https://github.com/leorodriguesf/setup.git ~/.setup >/dev/null
 
 if [[ $SETUP_REF != "master" ]]; then
-    cd ~/.local/share/setup
+    cd ~/.setup
 fi
 
 echo "Installation starting..."
 
-source ~/.local/share/setup/install
+source ~/.setup/install
