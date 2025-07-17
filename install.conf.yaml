@@ -37,7 +37,7 @@
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
-    - command: ansible-playbook playbook.yaml
+    - command: ansible-playbook playbook.yaml --ask-become-pass
       stdin: true
       stdout: true
       description: "Installing programms"
