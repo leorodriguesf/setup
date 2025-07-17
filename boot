@@ -97,9 +97,7 @@ rm -rf ~/.setup
 
 git clone https://github.com/leorodriguesf/setup.git ~/.setup >/dev/null
 
-if [[ $SETUP_REF != "master" ]]; then
-    cd ~/.setup
-fi
+cd ~/.setup
 
 echo "Installation starting..."
 
