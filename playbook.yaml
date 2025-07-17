@@ -18,3 +18,5 @@
       tags: aerospace
     - import_tasks: tasks/discord.yaml
       tags: discord
+    - import_tasks: tasks/docker.yaml
+      tags: docker

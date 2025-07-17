@@ -1,0 +1,48 @@
+- block:
+    - name: Check if Docker is already installed
+      shell: test -d /Applications/Docker.app
+      failed_when: false
+      register: docker_installed
+
+    - name: Install Docker
+      when: docker_installed.rc != 0
+      become: true
+      shell: |
+        cd /tmp
+        curl -LO https://desktop.docker.com/mac/main/arm64/178610/Docker.dmg?_gl=1*1i4pzdy*_ga*MTY5MTYyOTI1NC4xNzM2MDI5NjY0*_ga_XJWPQMJYHQ*MTczNjAyOTY2NC4xLjEuMTczNjAzMDU0Mi45LjAuMA..
+        sudo hdiutil attach Docker.dmg
+        sudo /Volumes/Docker/Docker.app/Contents/MacOS/install
+        sudo hdiutil detach /Volumes/Docker
+        rm -rf Docker.dmg
+  when: ansible_os_family == 'Darwin'
+
+- block:
+    - name: Add Docker's official GPG key
+      become: true
+      shell: |
+        sudo apt-get update
+        sudo apt-get install ca-certificates curl
+        sudo install -m 0755 -d /etc/apt/keyrings
+        sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+        sudo chmod a+r /etc/apt/keyrings/docker.asc
+
+    - name: Add the repository to Apt sources
+      become: true
+      shell: |
+        echo \
+        "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+        $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
+        sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+        sudo apt-get update
+
+    - name: Install Docker
+      become: true
+      apt:
+        force_apt_get: true
+        pkg:
+          - docker-ce
+          - docker-ce-cli
+          - containerd.io
+          - docker-buildx-plugin
+          - docker-compose-plugin
+  when: ansible_os_family == 'Debian'
