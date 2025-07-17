@@ -1,0 +1,13 @@
+- block:
+    - name: Install Discord
+      homebrew_cask:
+        name: Discord
+  when: ansible_os_family == 'Darwin'
+
+- block:
+    - name: Install Discord
+      shell: |
+        cd /tmp 
+        wget https://stable.dl2.discordapp.net/apps/linux/0.0.81/discord-0.0.81.deb
+        sudo apt install ./discord-0.0.81.deb
+  when: ansible_os_family == 'Debian'

@@ -16,3 +16,5 @@
       tags: bash
     - import_tasks: tasks/aerospace.yaml
       tags: aerospace
+    - import_tasks: tasks/discord.yaml
+      tags: discord
