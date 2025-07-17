@@ -7,13 +7,6 @@
       homebrew:
         name: fzf
 
-    - name: Activate fzf
-      blockinfile:
-        path: ~/.zshrc_local_after
-        block: |
-          source <(fzf --zsh) &>/dev/null
-        create: yes
-
     - name: Install jq
       homebrew:
         name: jq
@@ -64,13 +57,6 @@
       become: true
       apt:
         name:
-
-    - name: Activate fzf
-      blockinfile:
-        path: ~/.zshrc_local_after
-        block: |
-          source /usr/share/doc/fzf/examples/key-bindings.zsh &>/dev/null
-        create: yes
 
     - name: Install jq
       become: true

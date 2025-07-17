@@ -1,0 +1,35 @@
+- block:
+    - name: Create and/or update bashrc_local_before
+      blockinfile:
+        path: ~/.bashrc_local_before
+        block: |
+          [ -f /Library/Developer/CommandLineTools/usr/share/git-core/git-completion.bash ] &&
+              . /Library/Developer/CommandLineTools/usr/share/git-core/git-completion.bash
+
+          [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
+        create: yes
+
+    - name: Create and/or update bashrc_local_after
+      blockinfile:
+        path: ~/.bashrc_local_after
+        block: |
+          source <(fzf --bash) &>/dev/null
+        create: yes
+
+  when: ansible_os_family == 'Darwin'
+
+- block:
+    - name: Create and/or update bashrc_local_before
+      blockinfile:
+        path: ~/.bashrc_local_before
+        block: |
+          [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
+        create: yes
+
+    - name: Create and/or update bashrc_local_after
+      blockinfile:
+        path: ~/.bashrc_local_after
+        block: |
+          source /usr/share/doc/fzf/examples/key-bindings.bash &>/dev/null
+        create: yes
+  when: ansible_os_family == 'Debian'

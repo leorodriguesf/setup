@@ -3,13 +3,6 @@
       homebrew:
         name: zsh-autosuggestions
 
-    - name: Activate zsh-autosuggestions
-      blockinfile:
-        path: ~/.zshrc_local_before
-        block: |
-          source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-        create: yes
-
     - name: Check if MesloLG (Nerd Font) is installed
       shell: test -n "$(find ~/Library/Fonts -maxdepth 1 -name 'Meslo*')"
       register: nerd_font_installed
@@ -22,6 +15,20 @@
     - name: Change default shell
       become: true
       shell: sudo chsh -s /bin/zsh {{user.stdout}}
+
+    - name: Create and/or update zshrc_local_before
+      blockinfile:
+        path: ~/.zshrc_local_before
+        block: |
+          source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+        create: yes
+
+    - name: Create and/or update zshrc_local_after
+      blockinfile:
+        path: ~/.zshrc_local_after
+        block: |
+          source <(fzf --zsh) &>/dev/null
+        create: yes
   when: ansible_os_family == 'Darwin'
 
 - block:
@@ -53,4 +60,19 @@
     - name: Change default shell
       become: true
       shell: sudo chsh -s /bin/zsh {{user.stdout}}
+
+    - name: Create and/or update zshrc_local_before
+      blockinfile:
+        path: ~/.zshrc_local_before
+        block: |
+          source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+        create: yes
+
+    - name: Create and/or update zshrc_local_after
+      blockinfile:
+        path: ~/.zshrc_local_after
+        block: |
+          source /usr/share/doc/fzf/examples/key-bindings.zsh &>/dev/null
+        create: yes
+
   when: ansible_os_family == 'Debian'

@@ -12,3 +12,5 @@
       tags: terminal
     - import_tasks: tasks/zsh.yaml
       tags: zsh
+    - import_tasks: tasks/bash.yaml
+      tags: bash
