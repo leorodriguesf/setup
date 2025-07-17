@@ -3,6 +3,13 @@
       homebrew:
         name: zsh-autosuggestions
 
+    - name: Activate zsh-autosuggestions
+      blockinfile:
+        path: ~/.zshrc_local_before
+        block: |
+          source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+        create: yes
+
     - name: Check if MesloLG (Nerd Font) is installed
       shell: test -n "$(find ~/Library/Fonts -maxdepth 1 -name 'Meslo*')"
       register: nerd_font_installed
@@ -26,6 +33,13 @@
         sudo apt update
       args:
         creates: /etc/apt/trusted.gpg.d/shells_zsh-users_zsh-autosuggestions.gpg
+
+    - name: Activate zsh-autosuggestions
+      blockinfile:
+        path: ~/.zshrc_local_before
+        block: |
+          source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+        create: yes
 
     - name: Add zsh-autosuggestions
       become: true
