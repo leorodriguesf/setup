@@ -1,0 +1,80 @@
+- block:
+    - name: Install VSCode
+      homebrew_cask:
+        name: visual-studio-code
+    - name: Ensure VSCode User settings directory exists
+      file:
+        path: ~/Library/Application Support/Code/User
+        state: directory
+        mode: 0755
+    - name: Ensure settings exist
+      file:
+        dest: ~/Library/Application Support/Code/User/settings.json
+        state: touch
+    - name: Link settings
+      file:
+        src: "{{xdg_config_home}}/vscode/settings.json"
+        dest: ~/Library/Application Support/Code/User/settings.json
+        state: link
+        force: true
+    - name: Ensure keybindings exist
+      file:
+        dest: ~/Library/Application Support/Code/User/keybindings.json
+        state: touch
+    - name: Link keybindings
+      file:
+        src: "{{xdg_config_home}}/vscode/keybindings.json"
+        dest: ~/Library/Application Support/Code/User/keybindings.json
+        state: link
+        force: true
+    - name: Install jq
+      homebrew:
+        name: jq
+  when: ansible_os_family == 'Darwin'
+
+- block:
+    - name: Check if VSCode is already installed
+      ansible.builtin.command: which code
+      register: vscode_check
+      ignore_errors: yes
+    - name: Install VSCode
+      become: true
+      shell: |
+        cd /tmp
+        wget https://vscode.download.prss.microsoft.com/dbazure/download/stable/cd4ee3b1c348a13bafd8f9ad8060705f6d4b9cba/code_1.96.4-1736991114_amd64.deb
+        sudo apt install ./code_1.96.4-1736991114_amd64.deb
+      when: vscode_check.rc != 0
+    - name: Ensure VSCode User settings directory exists
+      file:
+        path: ~/.config/Code/User
+        state: directory
+        mode: 0755
+    - name: Ensure settings exist
+      file:
+        dest: ~/.config/Code/User/settings.json
+        state: touch
+    - name: Link settings
+      file:
+        src: "{{xdg_config_home}}/vscode/settings.json"
+        dest: ~/.config/Code/User/settings.json
+        force: true
+    - name: Ensure keybindings exist
+      file:
+        dest: ~/.config/Code/User/keybindings.json
+        state: touch
+    - name: Link keybindings
+      file:
+        src: "{{xdg_config_home}}/vscode/keybindings.json"
+        dest: ~/.config/Code/User/keybindings.json
+        state: link
+        force: true
+    - name: Install jq
+      become: true
+      apt:
+        name: jq
+  when: ansible_os_family == 'Debian'
+
+- name: Install extensions
+  shell:
+    cat {{xdg_config_home}}/vscode/extensions.json | jq '.[] | .identifier.id' |
+    xargs -n1 code --install-extension

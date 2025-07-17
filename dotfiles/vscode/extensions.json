@@ -1,0 +1,203 @@
+[
+  {
+    "identifier": {
+      "id": "vscodevim.vim",
+      "uuid": "d96e79c6-8b25-4be3-8545-0e0ecefcae03"
+    },
+    "version": "1.29.0",
+    "location": {
+      "$mid": 1,
+      "path": "/Users/leorodriguesf/.vscode/extensions/vscodevim.vim-1.29.0",
+      "scheme": "file"
+    },
+    "relativeLocation": "vscodevim.vim-1.29.0",
+    "metadata": {
+      "installedTimestamp": 1736197014759,
+      "source": "gallery",
+      "id": "d96e79c6-8b25-4be3-8545-0e0ecefcae03",
+      "publisherId": "5d63889b-1b67-4b1f-8350-4f1dce041a26",
+      "publisherDisplayName": "vscodevim",
+      "targetPlatform": "undefined",
+      "updated": false,
+      "isPreReleaseVersion": false,
+      "hasPreReleaseVersion": false
+    }
+  },
+  {
+    "identifier": {
+      "id": "esbenp.prettier-vscode",
+      "uuid": "96fa4707-6983-4489-b7c5-d5ffdfdcce90"
+    },
+    "version": "11.0.0",
+    "location": {
+      "$mid": 1,
+      "path": "/Users/leorodriguesf/.vscode/extensions/esbenp.prettier-vscode-11.0.0",
+      "scheme": "file"
+    },
+    "relativeLocation": "esbenp.prettier-vscode-11.0.0",
+    "metadata": {
+      "installedTimestamp": 1736197015875,
+      "source": "gallery",
+      "id": "96fa4707-6983-4489-b7c5-d5ffdfdcce90",
+      "publisherId": "d16f4e39-2ffb-44e3-9c0d-79d873570e3a",
+      "publisherDisplayName": "Prettier",
+      "targetPlatform": "undefined",
+      "updated": false,
+      "isPreReleaseVersion": false,
+      "hasPreReleaseVersion": false
+    }
+  },
+  {
+    "identifier": {
+      "id": "dbaeumer.vscode-eslint",
+      "uuid": "583b2b34-2c1e-4634-8c0b-0b82e283ea3a"
+    },
+    "version": "3.0.10",
+    "location": {
+      "$mid": 1,
+      "path": "/Users/leorodriguesf/.vscode/extensions/dbaeumer.vscode-eslint-3.0.10",
+      "scheme": "file"
+    },
+    "relativeLocation": "dbaeumer.vscode-eslint-3.0.10",
+    "metadata": {
+      "installedTimestamp": 1736197017426,
+      "source": "gallery",
+      "id": "583b2b34-2c1e-4634-8c0b-0b82e283ea3a",
+      "publisherId": "29859a75-d81b-4f0e-8578-2c80ecee6f99",
+      "publisherDisplayName": "Microsoft",
+      "targetPlatform": "undefined",
+      "updated": false,
+      "isPreReleaseVersion": false,
+      "hasPreReleaseVersion": false
+    }
+  },
+  {
+    "identifier": {
+      "id": "astro-build.astro-vscode",
+      "uuid": "1fbbc8b0-7432-4b7e-8774-3336151da2f3"
+    },
+    "version": "2.15.4",
+    "location": {
+      "$mid": 1,
+      "path": "/Users/leorodriguesf/.vscode/extensions/astro-build.astro-vscode-2.15.4-darwin-arm64",
+      "scheme": "file"
+    },
+    "relativeLocation": "astro-build.astro-vscode-2.15.4-darwin-arm64",
+    "metadata": {
+      "installedTimestamp": 1736197018631,
+      "source": "gallery",
+      "id": "1fbbc8b0-7432-4b7e-8774-3336151da2f3",
+      "publisherId": "6c30d82f-e0d4-488a-a4a3-860c0c90001f",
+      "publisherDisplayName": "Astro",
+      "targetPlatform": "darwin-arm64",
+      "updated": false,
+      "isPreReleaseVersion": false,
+      "hasPreReleaseVersion": false
+    }
+  },
+  {
+    "identifier": {
+      "id": "foxundermoon.shell-format",
+      "uuid": "5fb19573-2183-4cf2-b53d-0fb869dae7ae"
+    },
+    "version": "7.2.5",
+    "location": {
+      "$mid": 1,
+      "path": "/Users/leorodriguesf/.vscode/extensions/foxundermoon.shell-format-7.2.5",
+      "scheme": "file"
+    },
+    "relativeLocation": "foxundermoon.shell-format-7.2.5",
+    "metadata": {
+      "installedTimestamp": 1736634164568,
+      "pinned": false,
+      "source": "gallery",
+      "id": "5fb19573-2183-4cf2-b53d-0fb869dae7ae",
+      "publisherId": "c5bb2216-aaba-47a1-962e-5561e40c03c5",
+      "publisherDisplayName": "foxundermoon",
+      "targetPlatform": "undefined",
+      "updated": false,
+      "isPreReleaseVersion": false,
+      "hasPreReleaseVersion": false
+    }
+  },
+  {
+    "identifier": {
+      "id": "yinfei.luahelper",
+      "uuid": "d3707c86-e17d-4f81-ae03-bbfae896128b"
+    },
+    "version": "0.2.29",
+    "location": {
+      "$mid": 1,
+      "path": "/Users/leorodriguesf/.vscode/extensions/yinfei.luahelper-0.2.29",
+      "scheme": "file"
+    },
+    "relativeLocation": "yinfei.luahelper-0.2.29",
+    "metadata": {
+      "installedTimestamp": 1736654258797,
+      "pinned": false,
+      "source": "gallery",
+      "id": "d3707c86-e17d-4f81-ae03-bbfae896128b",
+      "publisherId": "96e46664-7420-4d07-b29f-fc6074815ac5",
+      "publisherDisplayName": "Tencent",
+      "targetPlatform": "undefined",
+      "updated": false,
+      "isPreReleaseVersion": false,
+      "hasPreReleaseVersion": false
+    }
+  },
+  {
+    "identifier": {
+      "id": "catppuccin.catppuccin-vsc",
+      "uuid": "69264e4d-cd3b-468a-8f2b-e69673c7d864"
+    },
+    "version": "3.17.0",
+    "location": {
+      "$mid": 1,
+      "path": "/Users/leorodriguesf/.vscode/extensions/catppuccin.catppuccin-vsc-3.17.0",
+      "scheme": "file"
+    },
+    "relativeLocation": "catppuccin.catppuccin-vsc-3.17.0",
+    "metadata": {
+      "isApplicationScoped": false,
+      "isMachineScoped": false,
+      "isBuiltin": false,
+      "installedTimestamp": 1745447035331,
+      "pinned": false,
+      "source": "gallery",
+      "id": "69264e4d-cd3b-468a-8f2b-e69673c7d864",
+      "publisherId": "e7d2ed61-53e0-4dd4-afbe-f536c3bb4316",
+      "publisherDisplayName": "Catppuccin",
+      "targetPlatform": "undefined",
+      "updated": true,
+      "private": false,
+      "isPreReleaseVersion": false,
+      "hasPreReleaseVersion": false,
+      "preRelease": false
+    }
+  },
+  {
+    "identifier": { "id": "chadalen.vscode-jetbrains-icon-theme" },
+    "version": "2.31.0",
+    "location": {
+      "$mid": 1,
+      "fsPath": "/Users/leorodriguesf/.vscode/extensions/chadalen.vscode-jetbrains-icon-theme-2.31.0",
+      "external": "file:///Users/leorodriguesf/.vscode/extensions/chadalen.vscode-jetbrains-icon-theme-2.31.0",
+      "path": "/Users/leorodriguesf/.vscode/extensions/chadalen.vscode-jetbrains-icon-theme-2.31.0",
+      "scheme": "file"
+    },
+    "relativeLocation": "chadalen.vscode-jetbrains-icon-theme-2.31.0",
+    "metadata": {
+      "installedTimestamp": 1745452228958,
+      "pinned": false,
+      "source": "gallery",
+      "id": "641f0c25-0eca-440e-bcf8-8d36d9f23044",
+      "publisherId": "afe64544-e36e-4515-ae39-3cfc926da4d1",
+      "publisherDisplayName": "Chad Adams",
+      "targetPlatform": "undefined",
+      "updated": false,
+      "private": false,
+      "isPreReleaseVersion": false,
+      "hasPreReleaseVersion": false
+    }
+  }
+]
