@@ -6,3 +6,5 @@
   tasks:
     - import_tasks: tasks/vscode.yaml
       tags: vscode
+    - import_tasks: tasks/productivity.yaml
+      tags: productivity

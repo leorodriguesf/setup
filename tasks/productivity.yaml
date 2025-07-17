@@ -1,0 +1,108 @@
+- block:
+    - name: Install tmux
+      homebrew:
+        name: tmux
+
+    - name: Install fzf
+      homebrew:
+        name: fzf
+
+    - name: Install jq
+      homebrew:
+        name: jq
+
+    - name: Install tldr
+      homebrew:
+        name: tlrc
+
+    - name: Install shellcheck
+      homebrew:
+        name: shellcheck
+
+    - name: Install pup
+      homebrew:
+        name: pup
+
+    - name: Install lnav
+      homebrew:
+        name: lnav
+
+    - name: Install htop
+      homebrew:
+        name: htop
+
+    - name: Ensure /usr/local/bin exists
+      become: true
+      file:
+        dest: /usr/local/bin
+        mode: 0755
+        state: directory
+
+    - name: Install tgpt
+      shell:
+        curl -sSL https://raw.githubusercontent.com/aandrew-me/tgpt/main/install
+        | bash -s /usr/local/bin
+      become: true
+      args:
+        creates: /usr/local/bin/tgpt
+  when: ansible_os_family == 'Darwin'
+
+- block:
+    - name: Install tmux
+      become: true
+      apt:
+        name: tmux
+
+    - name: Install fzf
+      become: true
+      apt:
+        name: fzf
+
+    - name: Install jq
+      become: true
+      apt:
+        name: jq
+
+    - name: Install tldr
+      become: true
+      snap:
+        name: tldr
+
+    - name: Install shellcheck
+      become: true
+      apt:
+        name: shellcheck
+
+    - name: Install pup
+      become: true
+      shell: |
+        cd /tmp
+        [ -s pup_v0.4.0_linux_amd64.zip ] || sudo wget https://github.com/ericchiang/pup/releases/download/v0.4.0/pup_v0.4.0_linux_amd64.zip
+        sudo unzip -o pup_v0.4.0_linux_amd64.zip -d /usr/local/bin
+      args:
+        creates: /usr/local/bin/pup
+
+    - name: Install lnav
+      become: true
+      shell: |
+        cd /tmp
+        [ -s lnav-0.12.3-linux-musl-x86_64.zip ] || sudo wget https://github.com/tstack/lnav/releases/download/v0.12.3/lnav-0.12.3-linux-musl-x86_64.zip
+        sudo unzip -o lnav-0.12.3-linux-musl-x86_64.zip
+        cp lnav-0.12.3/lnav /usr/local/bin
+        cp lnav-0.12.3/lnav.1 /usr/local/share/man/man1
+      args:
+        creates: /usr/local/bin/lnav
+
+    - name: Install htop
+      become: true
+      apt:
+        name: htop
+
+    - name: Install tgpt
+      become: true
+      shell:
+        curl -sSL https://raw.githubusercontent.com/aandrew-me/tgpt/main/install
+        | bash -s /usr/local/bin
+      args:
+        creates: /usr/local/bin/tgpt
+  when: ansible_os_family == 'Debian'
