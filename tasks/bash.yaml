@@ -13,7 +13,8 @@
       blockinfile:
         path: ~/.bashrc_local_after
         block: |
-          source <(fzf --bash) &>/dev/null
+          $(brew --prefix)/opt/fzf/install --all >/dev/null
+          [ -f ~/.fzf.bash ] && source ~/.fzf.bash    # for bash
         create: yes
 
   when: ansible_os_family == 'Darwin'
