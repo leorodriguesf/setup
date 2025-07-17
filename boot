@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+cd ~
+
 set -e
 
 OS_TYPE=$(uname -s)
@@ -102,3 +104,5 @@ cd ~/.setup
 echo "Installation starting..."
 
 source ~/.setup/install
+
+cd - >/dev/null
