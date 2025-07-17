@@ -10,3 +10,5 @@
       tags: productivity
     - import_tasks: tasks/terminal.yaml
       tags: terminal
+    - import_tasks: tasks/zsh.yaml
+      tags: zsh

@@ -1,0 +1,42 @@
+- block:
+    - name: Add zsh-autosuggestions
+      homebrew:
+        name: zsh-autosuggestions
+
+    - name: Check if MesloLG (Nerd Font) is installed
+      shell: test -n "$(find ~/Library/Fonts -maxdepth 1 -name 'Meslo*')"
+      register: nerd_font_installed
+      failed_when: false
+
+    - name: Get whoami to change its default shell
+      shell: whoami
+      register: user
+
+    - name: Change default shell
+      become: true
+      shell: sudo chsh -s /bin/zsh {{user.stdout}}
+  when: ansible_os_family == 'Darwin'
+
+- block:
+    - name: Add zsh-autosuggestions repository
+      become: true
+      shell: |
+        echo 'deb http://download.opensuse.org/repositories/shells:/zsh-users:/zsh-autosuggestions/xUbuntu_22.04/ /' | sudo tee /etc/apt/sources.list.d/shells:zsh-users:zsh-autosuggestions.list
+        wget -qO- https://build.opensuse.org/projects/shells:zsh-users:zsh-autosuggestions/signing_keys/download\?kind\=gpg | sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/shells_zsh-users_zsh-autosuggestions.gpg
+        sudo apt update
+      args:
+        creates: /etc/apt/trusted.gpg.d/shells_zsh-users_zsh-autosuggestions.gpg
+
+    - name: Add zsh-autosuggestions
+      become: true
+      apt:
+        name: zsh-autosuggestions
+
+    - name: Get whoami to change its default shell
+      shell: whoami
+      register: user
+
+    - name: Change default shell
+      become: true
+      shell: sudo chsh -s /bin/zsh {{user.stdout}}
+  when: ansible_os_family == 'Debian'
