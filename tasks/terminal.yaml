@@ -1,0 +1,32 @@
+- block:
+    - name: Install MesloLG (Nerd Font)
+      shell: |
+        cd /tmp
+        curl -LO https://github.com/ryanoasis/nerd-fonts/releases/download/v3.3.0/Meslo.zip
+        unzip Meslo.zip -d Meslo
+        cp Meslo/*.ttf ~/Library/Fonts
+        rm -rf Meslo.zip Meslo
+      args:
+        creates: ~/Library/Fonts/Meslo*
+
+    - name: Install starship (custom prompt)
+      homebrew:
+        name: starship
+  when: ansible_os_family == 'Darwin'
+
+- block:
+    - name: Install MesloLG (Nerd Font)
+      shell: |
+        cd /tmp
+        curl -LO https://github.com/ryanoasis/nerd-fonts/releases/download/v3.3.0/Meslo.zip
+        unzip Meslo.zip -d Meslo
+        cp Meslo/*.ttf ~/.local/share/fonts
+        rm -rf Meslo.zip Mesl
+      args:
+        creates: ~/.local/share/fonts/Meslo*
+
+    - name: Install starship (custom prompt)
+      shell: curl -sS https://starship.rs/install.sh | sh -s -- -y
+      args:
+        creates: /usr/local/bin/starship
+  when: ansible_os_family == 'Debian'

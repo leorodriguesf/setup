@@ -8,3 +8,5 @@
       tags: vscode
     - import_tasks: tasks/productivity.yaml
       tags: productivity
+    - import_tasks: tasks/terminal.yaml
+      tags: terminal
