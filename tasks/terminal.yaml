@@ -12,6 +12,10 @@
     - name: Install starship (custom prompt)
       homebrew:
         name: starship
+
+    - name: Set MesloLG (Nerd Font) as default font
+      shell: |
+        osascript -e 'tell application "Terminal" to set font name of default settings to "MesloLGL Nerd Font Mono"'
   when: ansible_os_family == 'Darwin'
 
 - block:
