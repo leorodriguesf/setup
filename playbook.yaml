@@ -20,3 +20,5 @@
       tags: discord
     - import_tasks: tasks/docker.yaml
       tags: docker
+    - import_tasks: tasks/flameshot.yaml
+      tags: flameshot
