@@ -14,9 +14,9 @@
       failed_when: false
 
     - name: Allow Application AeroSpace to be used on System Settings
-      pause:
-        prompt: Please allow Application AeroSpace to be used on System Settings
-        minutes: 1
+      shell: |
+        echo "Please press any key to continue"
+        read -n 1 -s
 
     - name: Open AeroSpace
       shell: open /Applications/AeroSpace.app

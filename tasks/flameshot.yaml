@@ -7,9 +7,9 @@
         name: flameshot
 
     - name: Allow Application Flameshot to be used and record the content of the Screen on System Settings
-      pause:
-        prompt: Please allow Application Flameshot to be used and record the content of the Screen on System Settings
-        minutes: 1
+      shell: |
+        echo "Please press any key to continue"
+        read -n 1 -s
 
     - name: Run flameshot on startup
       shell: /Applications/flameshot.app/Contents/MacOS/flameshot config --autostart true
