@@ -6,16 +6,16 @@
       homebrew_cask:
         name: flameshot
 
-    - pause:
-        prompt: Please Allow Application Flameshot to be used on System Settings
-        minutes: 1
+    - name: Allow Application Flameshot to be used and record the content of the Screen on System Settings
+      pause:
+        prompt: Press Enter to continue
 
     - name: Run flameshot on startup
       shell: /Applications/flameshot.app/Contents/MacOS/flameshot config --autostart true
 
-    - pause:
-        prompt: Please Allow Application Flameshot to record the content of the Screen on System Settings
-        minutes: 1
+    - name: Open flameshot
+      shell: open /Applications/flameshot.app
+
   when: ansible_os_family == 'Darwin'
 
 - block:

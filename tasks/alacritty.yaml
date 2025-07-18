@@ -1,0 +1,13 @@
+- block:
+    - name: Install Alacritty
+      homebrew_cask:
+        name: alacritty
+  when: ansible_os_family == 'Darwin'
+
+- block:
+    - name: Install Alacritty
+      become: true
+      snap:
+        name: alacritty
+        classic: true
+  when: ansible_os_family == 'Debian'

@@ -3,9 +3,6 @@
       homebrew_cask:
         name: nikitabobko/tap/aerospace
 
-    - name: Open AeroSpace
-      shell: open /Applications/AeroSpace.app
-
     - name: Hide dock
       shell:
         osascript -e 'tell application "System Events" to set the autohide of
@@ -15,5 +12,12 @@
       shell: aerospace resize smart +100
       register: result
       failed_when: false
+
+    - name: Allow Application AeroSpace to be used on System Settings
+      pause:
+        prompt: Press Enter to continue
+
+    - name: Open AeroSpace
+      shell: open /Applications/AeroSpace.app
 
   when: ansible_os_family == 'Darwin'
