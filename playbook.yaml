@@ -14,11 +14,12 @@
       tags: zsh
     - import_tasks: tasks/bash.yaml
       tags: bash
-    - import_tasks: tasks/aerospace.yaml
-      tags: aerospace
     - import_tasks: tasks/discord.yaml
       tags: discord
     - import_tasks: tasks/docker.yaml
       tags: docker
+    # Tasks that need user interaction run in the end to avoid blocking the installation
+    - import_tasks: tasks/aerospace.yaml
+      tags: aerospace
     - import_tasks: tasks/flameshot.yaml
       tags: flameshot

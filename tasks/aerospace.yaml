@@ -15,7 +15,8 @@
 
     - name: Allow Application AeroSpace to be used on System Settings
       pause:
-        prompt: Press Enter to continue
+        prompt: Please allow Application AeroSpace to be used on System Settings
+        minutes: 1
 
     - name: Open AeroSpace
       shell: open /Applications/AeroSpace.app
